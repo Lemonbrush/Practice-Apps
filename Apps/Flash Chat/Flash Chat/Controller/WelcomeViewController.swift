@@ -13,12 +13,12 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+         // Logo animation variant without CLTypingLabel pod
+         
         titleLabel.text = ""
         var charIndex = 0.0 // Animation delay depending on char index
         let titleText = "⚡️FlashChat"
         
-        // Logo animation
         for letter in titleText {
             
             Timer.scheduledTimer(withTimeInterval: 0.1 * charIndex, repeats: false) { (timer) in
@@ -27,7 +27,6 @@ class WelcomeViewController: UIViewController {
             
             charIndex += 1
         }
-        
     }
 
 }
