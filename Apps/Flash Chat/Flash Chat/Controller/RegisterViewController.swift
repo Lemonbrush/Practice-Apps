@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class RegisterViewController: UIViewController {
     
@@ -14,6 +15,26 @@ class RegisterViewController: UIViewController {
     
     @IBAction func registerPressed(_ sender: Any) {
         
+        if let email = emailTextfield.text, let password = passwordTextField.text {
+        
+            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+                if let e = error
+                {
+                    // localizedDescription boils down the error text so you can use it to show to user
+                    let errorText = e.localizedDescription
+                    
+                    // Alert view shows to user in case of an error
+                    let alert = UIAlertController(title: "Ooops", message: errorText, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    
+                } else {
+                    // Navigate to the Chat
+                    self.performSegue(withIdentifier: "RegisterToChat", sender: self)
+                }
+            }
+            
+        }
     }
     
 }
