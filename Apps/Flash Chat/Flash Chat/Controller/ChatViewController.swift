@@ -138,7 +138,8 @@ extension ChatViewController: UITableViewDataSource {
             cell.rightImageView.isHidden = false
             cell.messageBubble.backgroundColor = UIColor(named: K.BrandColors.lightPurple)
             cell.label.textColor = UIColor(named: K.BrandColors.purple)
-            cell.label.textAlignment = .right
+            cell.leftFillerView.isHidden = false
+            cell.rightFillerView.isHidden = true
         }
         // This is a message from another sender
         else {
@@ -146,7 +147,8 @@ extension ChatViewController: UITableViewDataSource {
             cell.rightImageView.isHidden = true
             cell.messageBubble.backgroundColor = UIColor(named: K.BrandColors.purple)
             cell.label.textColor = UIColor(named: K.BrandColors.lightPurple)
-            cell.label.textAlignment = .left
+            cell.leftFillerView.isHidden = true
+            cell.rightFillerView.isHidden = false
         }
         
         return cell
