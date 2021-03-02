@@ -15,12 +15,9 @@ class ChatViewController: UIViewController {
     
     let db = Firestore.firestore()
     
-    var messages: [Message] = [
-        Message(sender: "1@2.mail.com", body: "Hey!"),
-        Message(sender: "a@b.mail.com", body: "Hello"),
-        Message(sender: "1@2.mail.com", body: "Whay's up? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.")
-    ]
+    var messages: [Message] = []
     
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,23 +25,79 @@ class ChatViewController: UIViewController {
 
         // Top bar menu setup 
         navigationItem.hidesBackButton = true
-        navigationItem.title = "⚡️FlashChat"
+        navigationItem.title = K.appName
         
         tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
+        
+        loadMessages()
     }
-
+    
+    // MARK: Helper functions
+    func loadMessages() {
+        
+        // Fetch data from the firebase and handle it in the closure whenever new data added to Firebase
+        // This piece of code executes every time new data added to the base
+        db.collection(K.FStore.collectionName)
+            .order(by: K.FStore.dateField)
+            .addSnapshotListener { (querySnapshot, error) in
+            
+            if let e = error {
+                print("There was an issue retrieving data from Firestore. \(e)")
+            } else {
+                // Fetched data from the firebase
+                if let snapshotDocuments = querySnapshot?.documents {
+                    
+                    self.messages = [] // Reset the array
+                    
+                    for doc in snapshotDocuments {
+                        let data = doc.data()
+                        // Handling particular data
+                        if let messageSender = data[K.FStore.senderField] as? String,
+                            let messageBody = data[K.FStore.bodyField] as? String {
+                            
+                            let newMessage = Message(sender: messageSender, body: messageBody)
+                            self.messages.append(newMessage) // Populating the array for messages
+                            
+                            // Reloading table view when the data fully fetched
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                                // Automatically scroll the table
+                                let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
+                                self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+                            }
+                            
+                        }
+                    }
+                    
+                }
+                
+            }
+            
+        }
+        
+    }
+    
+    // MARK: IBActions
     @IBAction func sendPressed(_ sender: Any) {
         
+        // Create new collection and send it to the base
         if let messageBody = messageTextfield.text,
            let messageSender = Auth.auth().currentUser?.email {
             
             db.collection(K.FStore.collectionName).addDocument(data:
                                                                 [K.FStore.senderField: messageSender,
-                                                                 K.FStore.bodyField: messageBody]) { (error) in
+                                                                 K.FStore.bodyField: messageBody,
+                                                                 K.FStore.dateField: Date().timeIntervalSince1970]) { (error) in
                 if let e = error {
                     print("There was an issue saving data to firestore, \(e)")
                 } else {
                     print("Successfully saved data.")
+                    
+                    // Clear textField
+                    DispatchQueue.main.async {
+                        self.messageTextfield.text = ""
+                    }
+                    
                 }
             }
             
@@ -73,9 +126,28 @@ extension ChatViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as! MessageCell
         
+        let message = messages[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as! MessageCell
         cell.label.text = messages[indexPath.row].body
+        
+        // This is a message from current user
+        if message.sender == Auth.auth().currentUser?.email {
+            cell.leftImageView.isHidden = true
+            cell.rightImageView.isHidden = false
+            cell.messageBubble.backgroundColor = UIColor(named: K.BrandColors.lightPurple)
+            cell.label.textColor = UIColor(named: K.BrandColors.purple)
+            cell.label.textAlignment = .right
+        }
+        // This is a message from another sender
+        else {
+            cell.leftImageView.isHidden = false
+            cell.rightImageView.isHidden = true
+            cell.messageBubble.backgroundColor = UIColor(named: K.BrandColors.purple)
+            cell.label.textColor = UIColor(named: K.BrandColors.lightPurple)
+            cell.label.textAlignment = .left
+        }
         
         return cell
     }
