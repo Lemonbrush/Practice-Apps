@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum MessageStyle {
+    case userMessage
+    case interlocatorMessage
+}
+
 class MessageCell: UITableViewCell {
 
     @IBOutlet weak var messageBubble: UIView!
@@ -24,8 +29,28 @@ class MessageCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        
+    }
+    
+    func setMessageStyle(with style: MessageStyle) {
+        
+        switch style {
+        case .userMessage:
+            leftImageView.isHidden = true
+            rightImageView.isHidden = false
+            messageBubble.backgroundColor = UIColor(named: K.BrandColors.lightPurple)
+            label.textColor = UIColor(named: K.BrandColors.purple)
+            leftFillerView.isHidden = false
+            rightFillerView.isHidden = true
+            
+        case .interlocatorMessage:
+            leftImageView.isHidden = false
+            rightImageView.isHidden = true
+            messageBubble.backgroundColor = UIColor(named: K.BrandColors.purple)
+            label.textColor = UIColor(named: K.BrandColors.lightPurple)
+            leftFillerView.isHidden = true
+            rightFillerView.isHidden = false
+        }
     }
     
 }

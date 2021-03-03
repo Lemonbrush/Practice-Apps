@@ -239,7 +239,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yLK-Cf-A3t">
-                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="YMP-cD-4N5">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="clear" catalog="system" id="YMP-cD-4N5">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="logOutPressed:" destination="dYX-3r-ZyL" id="jty-UM-78U"/>
                             </connections>
@@ -379,6 +380,7 @@
         <segue reference="zlD-Wf-znV"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="clear" catalog="system" width="128" height="114"/>
         <image name="paperplane.fill" catalog="system" width="128" height="118"/>
         <image name="textfield" width="298" height="93"/>
         <namedColor name="BrandBlue">
