@@ -16,13 +16,21 @@ struct ContentView: View {
         
         // Creates a navigation stack
         NavigationView {
+                        
             // UITableView
             List(networkManager.posts) { post in
-                // For single one post in posts...
-                HStack {
-                    Text(String(post.points))
-                    Text(post.title)
-                }
+                // For single one post in networkManager posts...
+                
+                // NavigationLink allows to move around different views
+                NavigationLink(
+                    destination: DetailView(url: post.url),
+                    label: {
+                        HStack {
+                            Text(String(post.points))
+                            Text(post.title)
+                        }
+                    })
+                
             }
             .navigationBarTitle("H4X0R News")
         }

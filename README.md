@@ -14,6 +14,23 @@ Here are small practice progects made in terms of learning Computer Science
 
 ## [iOS app development bootcamp](https://www.udemy.com/course/ios-13-app-development-bootcamp/?utm_source=adwords&utm_medium=udemyads&utm_campaign=iOSDevelopment_v.PROF_la.EN_cc.ROW_ti.6292&utm_content=deal4584&utm_term=_._ag_85479008314_._ad_437497336317_._kw__._de_c_._dm__._pl__._ti_dsa-774930045049_._li_9047027_._pd__._&matchtype=b&gclid=Cj0KCQiApsiBBhCKARIsAN8o_4gEPNNOg-_E9Tg0_tILyIOzcmQW0d26UKOQsdht9iqjSPDf1yCzVkkaAoLhEALw_wcB) 
 
+### HackerNews SwiftUI
+![Image](https://github.com/Lemonbrush/Practice-Apps/blob/main/Resources/Images/My_projects/HackerNews.png)
+
+An app with feed from Search Hacker News site. It contains all featured posts, sites and just topics from the hacker world  
+
+`Practiced:`  
+- SwiftUI  
+- List  
+- Moving among views  
+- Observer design pattern  
+- @Observable / @Observed logic  
+- Networking with SwiftUI  
+- Mac port feature  
+- Work with [**Search Hacker News API**](https://hn.algolia.com/api)  
+
+[`Source files`](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/H4X0R%20News) 
+
 ### SwiftUI Micro Apps
 ![Image](https://github.com/Lemonbrush/Practice-Apps/blob/main/Resources/Images/My_projects/MicroSwiftUI.png)
 
@@ -38,7 +55,7 @@ A messenger app implemented with Firestore API. A user can register, login and s
 - Networking   
 - Delegate pattern  
 - MVC pattern  
-- Firestore API 
+- Work with [**Firestore API**](https://firebase.google.com/docs/firestore/use-rest-api)  
 - DispatchQueue  
 - Clean code structure with extensions  
 - Work with XIB
@@ -56,7 +73,7 @@ This app allows you to see current Bytecoin cost in different currencies
 - Delegate pattern  
 - MVC pattern  
 - JSON parsing  
-- Work with CoinApi API  
+- Work with [**CoinApi API**](https://www.coinapi.io)   
 - DispatchQueue  
 - Protocols  
 - Clean code structure with extensions  
@@ -74,7 +91,7 @@ Weather app. As They say, every iOS developer shoild make the weather app at lea
 - Delegate pattern  
 - MVC pattern  
 - JSON parsing  
-- Work with OpenWeather API  
+- Work with [**OpenWeather API**](https://openweathermap.org/api)    
 - DispatchQueue  
 - Working with dark and light mode and making UI change relatively to the modes  
 - Protocols  
