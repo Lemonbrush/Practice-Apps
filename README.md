@@ -14,6 +14,60 @@ Here are small practice progects made in terms of learning Computer Science
 
 ## [iOS app development bootcamp](https://www.udemy.com/course/ios-13-app-development-bootcamp/?utm_source=adwords&utm_medium=udemyads&utm_campaign=iOSDevelopment_v.PROF_la.EN_cc.ROW_ti.6292&utm_content=deal4584&utm_term=_._ag_85479008314_._ad_437497336317_._kw__._de_c_._dm__._pl__._ti_dsa-774930045049_._li_9047027_._pd__._&matchtype=b&gclid=Cj0KCQiApsiBBhCKARIsAN8o_4gEPNNOg-_E9Tg0_tILyIOzcmQW0d26UKOQsdht9iqjSPDf1yCzVkkaAoLhEALw_wcB) 
 
+### HackerNews SwiftUI
+![Image](https://github.com/Lemonbrush/Practice-Apps/blob/main/Resources/Images/My_projects/HackerNews.png)
+
+An app with feed from Search Hacker News site. It contains all featured posts, sites and just topics from the hacker world  
+
+`Practiced:`  
+- SwiftUI  
+- List  
+- Moving among views  
+- Observer design pattern  
+- @Observable / @Observed logic  
+- Networking with SwiftUI  
+- Mac port feature  
+- Work with [**Search Hacker News API**](https://hn.algolia.com/api)  
+
+[`Source files`](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/H4X0R%20News) 
+
+---
+
+### SwiftUI Micro Apps
+![Image](https://github.com/Lemonbrush/Practice-Apps/blob/main/Resources/Images/My_projects/MicroSwiftUI.png)
+
+3 super simple apps made with SwiftUI in order to learn its basics
+
+ `Practiced:`  
+- SwiftUI basics  
+- ZHVStacks
+- Layout
+- @State logic  
+
+[`Source files (Business card)`](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/MyBusinessCard)  
+[`Source files (I Am Rich)`](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/I%20Am%20Rich)  
+[`Source files (Dice)`](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/Dice-SwiftUI)  
+
+---
+
+### Flash Chat
+![Image](https://github.com/Lemonbrush/Practice-Apps/blob/main/Resources/Images/My_projects/FlashChat.png) 
+
+A messenger app implemented with Firestore API. A user can register, login and send messages to the general chat room.
+
+`Practiced:`  
+- Networking   
+- Delegate pattern  
+- MVC pattern  
+- Work with [**Firestore API**](https://firebase.google.com/docs/firestore/use-rest-api)  
+- DispatchQueue  
+- Clean code structure with extensions  
+- Work with XIB
+
+[`Source files`](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/Flash%20Chat)  
+
+---
+
 ### ByteCoin
 ![Image](https://github.com/Lemonbrush/Practice-Apps/blob/main/Resources/Images/My_projects/ByteCoin.png) 
 
@@ -25,12 +79,14 @@ This app allows you to see current Bytecoin cost in different currencies
 - Delegate pattern  
 - MVC pattern  
 - JSON parsing  
-- Work with CoinApi API  
+- Work with [**CoinApi API**](https://www.coinapi.io)   
 - DispatchQueue  
 - Protocols  
 - Clean code structure with extensions  
 
 [`Source files`](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/ByteCoin)
+
+---
 
 ### Clima
 ![Image](https://github.com/Lemonbrush/Practice-Apps/blob/main/Resources/Images/My_projects/Clima.gif) 
@@ -43,13 +99,15 @@ Weather app. As They say, every iOS developer shoild make the weather app at lea
 - Delegate pattern  
 - MVC pattern  
 - JSON parsing  
-- Work with OpenWeather API  
+- Work with [**OpenWeather API**](https://openweathermap.org/api)    
 - DispatchQueue  
 - Working with dark and light mode and making UI change relatively to the modes  
 - Protocols  
 - Clean code structure with extensions  
 
 [`Source files`](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/Clima) 
+
+---
 
 ### Tipsy
 ![Image](https://github.com/Lemonbrush/Practice-Apps/blob/main/Resources/Images/My_projects/Tipsy.png) 
@@ -65,6 +123,8 @@ Tip calculator. Type total bill, choose a tip percent option, amount of people t
 
 [`Source files`](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/Tipsy) 
 
+---
+
 ### BMI Calculator
 ![Image](https://github.com/Lemonbrush/Practice-Apps/blob/main/Resources/Images/My_projects/BMI_Calculator.png)  
 
@@ -78,6 +138,7 @@ An app that calculates BMI based on values inputed via sliders
 
 [`Source files`](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/BMI%20Calculator) 
 
+---
 
 ### Quizzler
 ![Image](https://github.com/Lemonbrush/Practice-Apps/blob/main/Resources/Images/My_projects/Quizzler.png)  
@@ -92,6 +153,8 @@ Simple quiz app made to deeply understand how does the MVC design pattern work
 [`Source files`](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/Quizzler)  
 [`Source files (Multiple choice)`](https://github.com/Lemonbrush/Practice-Apps/tree/main/Apps/Quizzler%C2%A0(MultipleChoice))  
 [`Source files (Challenge app - Destiny)`](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/Destiny)   
+
+---
 
 ## [Udacity - UIKit Fundamentals]((https://www.udacity.com/course/uikit-fundamentals--ud788))
 ### MemeMe
@@ -109,6 +172,8 @@ Simple meme creator app. Choose an image, type something in the textViews and sh
 
 [`Source files`](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/MemeMeV2)  
 [`Source files (just meme maker view)`](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/MemeMeV1)  
+
+---
 
 ### Roshambo
 ![Image](https://github.com/Lemonbrush/Practice-Apps/blob/main/Resources/Images/My_projects/Roshambo/Roshambo.png)  
@@ -132,6 +197,8 @@ Implemented ViewController presentation:
 [`Source files`](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/Roshambo)  
 [`Source files (Navigation ViewController solution)`](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/RoshamboV2)
 
+---
+
 ## [Uacity - Intro to iOS App Development](https://www.udacity.com/course/intro-to-ios-app-development-with-swift--ud585)
 ### Pitch perfect
 ![Image](https://github.com/Lemonbrush/Practice-Apps/blob/main/Resources/Images/My_projects/PitchPerfect.png)
@@ -144,6 +211,8 @@ An app with 2 view controllers that records your voice and plays the record with
 - AutoLayout   
 
 [`Source files`](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/PitchPerfect)
+
+---
 
 ### Text Fields
 ![Image](https://github.com/Lemonbrush/Practice-Apps/blob/main/Resources/Images/My_projects/TextFields.png)
@@ -161,6 +230,8 @@ Implemented TextField in different ways:
 - TextField that changes its text color via typing and it also has to be enabled by the switch   
 
 [`Source files`](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/TextFields)
+
+---
 
 ### Color Maker
 ![Image](https://github.com/Lemonbrush/Practice-Apps/blob/main/Resources/Images/My_projects/Color_Maker.png)
