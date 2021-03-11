@@ -18,14 +18,11 @@
 		70E2AD6A25E7AD42008956FB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E2AD6925E7AD42008956FB /* LoginViewController.swift */; };
 		70E2AD6D25E7AD4E008956FB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E2AD6C25E7AD4E008956FB /* ChatViewController.swift */; };
 		70E2AD7D25EAA807008956FB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70E2AD7C25EAA807008956FB /* GoogleService-Info.plist */; };
-<<<<<<< HEAD
-=======
 		70E2ADC925EBC83F008956FB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E2ADC825EBC83F008956FB /* Constants.swift */; };
 		70E2ADCC25ECF6C9008956FB /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E2ADCB25ECF6C9008956FB /* Message.swift */; };
 		70E2ADD025ECFABE008956FB /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E2ADCE25ECFABE008956FB /* MessageCell.swift */; };
 		70E2ADD125ECFABE008956FB /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70E2ADCF25ECFABE008956FB /* MessageCell.xib */; };
 		70E2ADEA25EE5473008956FB /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 70E2ADE925EE5473008956FB /* IQKeyboardManagerSwift */; };
->>>>>>> 85c9e8e7752dffabe368e517f137d293508d252b
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,13 +40,10 @@
 		70E2AD6925E7AD42008956FB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		70E2AD6C25E7AD4E008956FB /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		70E2AD7C25EAA807008956FB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-<<<<<<< HEAD
-=======
 		70E2ADC825EBC83F008956FB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		70E2ADCB25ECF6C9008956FB /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		70E2ADCE25ECFABE008956FB /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		70E2ADCF25ECFABE008956FB /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
->>>>>>> 85c9e8e7752dffabe368e517f137d293508d252b
 		727F20BF2445FA15BEEC8AE9 /* Pods_Flash_Chat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flash_Chat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -96,10 +90,7 @@
 				70E2AD5425E7A6CA008956FB /* Assets.xcassets */,
 				70E2AD5925E7A6CA008956FB /* Info.plist */,
 				70E2AD7C25EAA807008956FB /* GoogleService-Info.plist */,
-<<<<<<< HEAD
-=======
 				70E2ADC825EBC83F008956FB /* Constants.swift */,
->>>>>>> 85c9e8e7752dffabe368e517f137d293508d252b
 			);
 			path = "Flash Chat";
 			sourceTree = "<group>";
