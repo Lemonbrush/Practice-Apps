@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // Show the path where is UserDefaults placed 
-        print(NSSearchPathForDirectoriesInDomains(.documentationDirectory, .userDomainMask, true).last! as String)
+        //print(NSSearchPathForDirectoriesInDomains(.documentationDirectory, .userDomainMask, true).last! as String)
         
         return true
     }

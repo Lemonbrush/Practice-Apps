@@ -9,20 +9,15 @@ import UIKit
 
 class TodoListViewController: UITableViewController {
     
-    //var itemArray = ["Find Mike", "Buy Eggos", "Destroy Demogorgon"]
-    
+    // The path to the local directory on the device to store App data
+    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
     var itemArray = [Item("Find Mike"), Item("Buy Eggos", isDone: true), Item("Destroy Demogorgon")]
-    
-    let defaults = UserDefaults.standard // User defaults data base for key-value pares
 
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let items = defaults.array(forKey: "TodoListArray") as? [Item] {
-            itemArray = items
-        }
-        
+        loadItems()
     }
     
     // MARK: IBActions
@@ -33,12 +28,8 @@ class TodoListViewController: UITableViewController {
         let alert = UIAlertController(title: "Add new Todoe Item", message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
             //It will happen once the user hits the button
-            
             self.itemArray.append(Item(textField.text ?? "???"))
-            
-            self.defaults.set(self.itemArray, forKey: "TodoListArray") // Save data to userDefaults for TodoListArray
-            
-            self.tableView.reloadData()
+            self.saveItems()
         }
         
         alert.addTextField { (alertTextField) in
@@ -51,7 +42,7 @@ class TodoListViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    // MARK: Tableview Datasource Methods
+    // MARK: - Tableview Datasource Methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemArray.count
     }
@@ -69,15 +60,46 @@ class TodoListViewController: UITableViewController {
         return cell
     }
     
-    // MARK: TableView Delegate Methods
+    // MARK: - TableView Delegate Methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // Tick the cell
         itemArray[indexPath.row].isDone = !itemArray[indexPath.row].isDone
         
-        tableView.reloadData() // Forces tableView to call its dataSource methods again
+        saveItems() // And save to the local directory on the device
         
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    // MARK: - Model Manipulation Methods
+    
+    // Encode data
+    func saveItems() {
+        
+        let encoder = PropertyListEncoder()
+        do {
+            let data = try encoder.encode(itemArray)
+            try data.write(to: dataFilePath!)
+        } catch {
+            print("Error encoding item array, \(error)")
+        }
+        
+        self.tableView.reloadData()
+    }
+    
+    // Decode data
+    func loadItems() {
+        
+        if let data = try? Data(contentsOf: dataFilePath!) {
+            let decoder = PropertyListDecoder()
+            
+            do {
+                itemArray = try decoder.decode([Item].self, from: data)
+            } catch {
+                print("Error decoding item array, \(error)")
+            }
+            
+        }
     }
 
 }
