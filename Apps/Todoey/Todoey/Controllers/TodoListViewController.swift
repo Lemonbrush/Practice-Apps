@@ -6,16 +6,21 @@
 //
 
 import UIKit
+import CoreData
 
 class TodoListViewController: UITableViewController {
     
-    // The path to the local directory on the device to store App data
-    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
-    var itemArray = [Item("Find Mike"), Item("Buy Eggos", isDone: true), Item("Destroy Demogorgon")]
+    // CoreData container
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var itemArray = [Item]()
 
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // The path to the local directory on the device to store App data
+       print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         
         loadItems()
     }
@@ -28,7 +33,12 @@ class TodoListViewController: UITableViewController {
         let alert = UIAlertController(title: "Add new Todoe Item", message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
             //It will happen once the user hits the button
-            self.itemArray.append(Item(textField.text ?? "???"))
+            
+            let newItem = Item(context: self.context) // Automatically generated class by CoreData
+            newItem.title = textField.text ?? "???"
+            newItem.isDone = false
+            
+            self.itemArray.append(newItem)
             self.saveItems()
         }
         
@@ -60,11 +70,29 @@ class TodoListViewController: UITableViewController {
         return cell
     }
     
+    // Cell editing
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            context.delete(itemArray[indexPath.row])
+            itemArray.remove(at: indexPath.row)
+            
+            saveItems()
+        }
+    }
+    
     // MARK: - TableView Delegate Methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // Tick the cell
         itemArray[indexPath.row].isDone = !itemArray[indexPath.row].isDone
+        
+        //context.delete(itemArray[indexPath.row])
+        //itemArray.remove(at: indexPath.row)
         
         saveItems() // And save to the local directory on the device
         
@@ -76,31 +104,28 @@ class TodoListViewController: UITableViewController {
     // Encode data
     func saveItems() {
         
-        let encoder = PropertyListEncoder()
         do {
-            let data = try encoder.encode(itemArray)
-            try data.write(to: dataFilePath!)
+            try context.save()
         } catch {
-            print("Error encoding item array, \(error)")
+            print("Error saving context, \(error)")
         }
         
         self.tableView.reloadData()
+         
     }
     
     // Decode data
     func loadItems() {
         
-        if let data = try? Data(contentsOf: dataFilePath!) {
-            let decoder = PropertyListDecoder()
-            
-            do {
-                itemArray = try decoder.decode([Item].self, from: data)
-            } catch {
-                print("Error decoding item array, \(error)")
-            }
-            
+        let request: NSFetchRequest<Item> = Item.fetchRequest() // Specify data type to make a request
+        
+        do {
+            itemArray = try context.fetch(request) // Save the data into itemArray
+        } catch {
+            print("Error fetching data from context \(error)")
         }
+        
     }
-
+ 
 }
 
