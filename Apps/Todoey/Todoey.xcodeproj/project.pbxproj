@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		701A234C25FDE96C0030ECD0 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701A234B25FDE96C0030ECD0 /* CategoryViewController.swift */; };
 		70C7981A25F9DEB9004F83BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C7981925F9DEB9004F83BB /* AppDelegate.swift */; };
 		70C7981C25F9DEB9004F83BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C7981B25F9DEB9004F83BB /* SceneDelegate.swift */; };
 		70C7981E25F9DEB9004F83BB /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C7981D25F9DEB9004F83BB /* TodoListViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		701A234B25FDE96C0030ECD0 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		70C7981625F9DEB9004F83BB /* Todoey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todoey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70C7981925F9DEB9004F83BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70C7981B25F9DEB9004F83BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 		702A99A625FB36E4009FBDF9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				701A234B25FDE96C0030ECD0 /* CategoryViewController.swift */,
 				70C7981D25F9DEB9004F83BB /* TodoListViewController.swift */,
 			);
 			path = Controllers;
@@ -172,6 +175,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				701A234C25FDE96C0030ECD0 /* CategoryViewController.swift in Sources */,
 				70C7981E25F9DEB9004F83BB /* TodoListViewController.swift in Sources */,
 				70C7981A25F9DEB9004F83BB /* AppDelegate.swift in Sources */,
 				70C7981C25F9DEB9004F83BB /* SceneDelegate.swift in Sources */,
