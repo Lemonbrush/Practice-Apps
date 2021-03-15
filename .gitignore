@@ -1,0 +1,4 @@
+.DS_Store
+
+# Realm is a heavy thing so it is avoided to be pushed
+/Apps/Todoey_Realm/Pods

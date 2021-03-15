@@ -1,0 +1,11 @@
+platform :ios, '9.0'
+
+target 'Todoey_Realm' do
+
+  use_frameworks!
+
+  # Pods for Todoey_Realm
+
+pod 'RealmSwift'
+
+end
