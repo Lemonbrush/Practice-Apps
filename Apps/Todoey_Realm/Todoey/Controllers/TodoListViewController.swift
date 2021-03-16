@@ -6,11 +6,13 @@
 //
 
 import UIKit
-import CoreData
+import RealmSwift
 
 class TodoListViewController: UITableViewController {
     
-    var itemArray = [Item]()
+    var todoItems: Results<Item>?
+    let realm = try! Realm()
+    
     var selectedCategory: Category? {
         // It happens after this variable initialization
         didSet {
@@ -25,7 +27,7 @@ class TodoListViewController: UITableViewController {
         // The path to the local directory on the device to store App data
        //print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         
-        //loadItems()
+        loadItems()
     }
     
     // MARK: IBActions
@@ -37,16 +39,20 @@ class TodoListViewController: UITableViewController {
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
             //It will happen once the user hits the button
             
-            /*
-            let newItem = Item(context: self.context) // Automatically generated class by CoreData
-            newItem.title = textField.text ?? "???"
-            newItem.isDone = false
-            newItem.parentCategory = self.selectedCategory
+            if let currentCategory = self.selectedCategory {
+                do {
+                    try self.realm.write {
+                        let newItem = Item()
+                        newItem.title = textField.text ?? "???"
+                        currentCategory.items.append(newItem)
+                    }
+                } catch {
+                    print("Error saving new items \(error)")
+                }
+                
+            }
             
-            self.itemArray.append(newItem)
- 
- */
-            self.saveItems()
+            self.tableView.reloadData()
         }
         
         alert.addTextField { (alertTextField) in
@@ -61,22 +67,27 @@ class TodoListViewController: UITableViewController {
     
     // MARK: - Tableview Datasource Methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemArray.count
+        return todoItems?.count ?? 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
         
-        let item = itemArray[indexPath.row]
-        
-        cell.textLabel?.text = item.title
-        
-        // Tick/Untick logic
-        cell.accessoryType = item.isDone ? .checkmark : .none
+        if let item = todoItems?[indexPath.row]{
+            cell.textLabel?.text = item.title
+            
+            // Tick/Untick logic
+            cell.accessoryType = item.isDone ? .checkmark : .none
+        } else {
+            cell.textLabel?.text = "No Items Added"
+            cell.textLabel?.textAlignment = .center
+            cell.textLabel?.textColor = .lightGray
+        }
         
         return cell
     }
     
+    /*
     // Cell editing
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -85,26 +96,27 @@ class TodoListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
-            //context.delete(itemArray[indexPath.row])
-            itemArray.remove(at: indexPath.row)
+            //context.delete(todoItems[indexPath.row])
+            todoItems.remove(at: indexPath.row)
             
             saveItems()
         }
     }
+    */
     
     // MARK: - TableView Delegate Methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // Tick the cell
-        itemArray[indexPath.row].isDone = !itemArray[indexPath.row].isDone
+        //todoItems[indexPath.row].isDone = !todoItems[indexPath.row].isDone
         
-        saveItems() // And save to the local directory on the device
+        //saveItems() // And save to the local directory on the device
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
     // MARK: - Model Manipulation Methods
-    
+    /*
     func saveItems() {
         
         do {
@@ -116,28 +128,15 @@ class TodoListViewController: UITableViewController {
         self.tableView.reloadData()
          
     }
-    /*
-    func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest(), predicate: NSPredicate? = nil) {
+ */
+
+    func loadItems() {
         
-        // Load Items which contain in a specific category
-        let categoryPredicate = NSPredicate(format: "parentCategory.name MATCHES %@", selectedCategory!.name!)
-        
-        // If additional predicate (from search bar) exists add it to the request predicat array
-        if let additionalPredicate = predicate {
-            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, additionalPredicate])
-        } else {
-            request.predicate = categoryPredicate
-        }
-        
-        do {
-            itemArray = try context.fetch(request) // Save the data into itemArray
-        } catch {
-            print("Error fetching data from context \(error)")
-        }
+        todoItems = selectedCategory?.items.sorted(byKeyPath: "title", ascending: true)
         
         tableView.reloadData()
     }
-    */
+
 }
 
 /*
