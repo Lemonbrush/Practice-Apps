@@ -63,7 +63,7 @@ class CategoryViewController: UITableViewController {
             print("Error saving data, \(error)")
         }
         
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
     
     
@@ -71,7 +71,7 @@ class CategoryViewController: UITableViewController {
         
         categories = realm.objects(Category.self) // Pull out all objects with Category type
         
-        self.tableView.reloadData()
+        tableView.reloadData()
  
     }
      
