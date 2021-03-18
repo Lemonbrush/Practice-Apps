@@ -7,9 +7,9 @@
 
 import UIKit
 import RealmSwift
-import SwipeCellKit
+import ChameleonFramework
 
-class CategoryViewController: UITableViewController {
+class CategoryViewController: SwipeTableViewController {
     
     let realm = try! Realm() // It is Ok because it can throw only once when first executed due memory constraint
     
@@ -21,6 +21,8 @@ class CategoryViewController: UITableViewController {
         loadCategories()
         
         tableView.rowHeight = 80.0
+        
+        tableView.separatorStyle = .none
     }
     
     // MARK: - TableView DataSource Methods
@@ -30,10 +32,13 @@ class CategoryViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath) as! SwipeTableViewCell
         
-        cell.textLabel?.text = categories?[indexPath.row].name ?? "No Categories Added Yet"
-        cell.delegate = self
+        let cell = super.tableView(tableView, cellForRowAt: indexPath) // Types into its super class and triggers the method
+        
+        if let category = categories?[indexPath.row] {
+            cell.textLabel?.text = category.name
+            cell.backgroundColor = UIColor.init(hexString: category.colorHex)
+        }
         
         return cell
     }
@@ -66,7 +71,7 @@ class CategoryViewController: UITableViewController {
         } catch {
             print("Error saving data, \(error)")
         }
-        
+
         tableView.reloadData()
     }
     
@@ -74,9 +79,24 @@ class CategoryViewController: UITableViewController {
     func loadCategories() {
         
         categories = realm.objects(Category.self) // Pull out all objects with Category type
-        
         tableView.reloadData()
- 
+    }
+    
+    // MARK: - Delete Data From Swipe
+    
+    override func deleteDataInModel(at indexPath: IndexPath) {
+        super.deleteDataInModel(at: indexPath)
+        
+        if let categoryForDeletion = self.categories?[indexPath.row] {
+            
+            do{
+                try self.realm.write {
+                    self.realm.delete(categoryForDeletion)
+                }
+            } catch {
+                print("Error deleting category, \(error)")
+            }
+        }
     }
      
     // MARK: - Add new Category
@@ -90,6 +110,7 @@ class CategoryViewController: UITableViewController {
             
             let newCategory = Category()
             newCategory.name = textField.text ?? "???"
+            newCategory.colorHex = UIColor.randomFlat().hexValue()
             
             self.save(category: newCategory)
         }
@@ -106,38 +127,3 @@ class CategoryViewController: UITableViewController {
     
 }
 
-// MARK: - Swipe Cell Delegate Methods
-
-extension CategoryViewController: SwipeTableViewCellDelegate {
-    
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-        
-        guard orientation == .right else { return nil }
-        
-        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { (action, indexPath) in
-            // Update data model
-            
-            if let categoryForDeletion = self.categories?[indexPath.row] {
-                
-                do {
-                    try self.realm.write {
-                        self.realm.delete(categoryForDeletion)
-                    }
-                } catch {
-                    print("Error deleting category, \(error)")
-                }
-            }
-        }
-        
-        deleteAction.image = UIImage(named: "delete")
-        
-        return [deleteAction]
-    }
-    
-    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
-        
-        var options = SwipeTableOptions()
-        options.expansionStyle = .destructive
-        return options
-    }
-}
