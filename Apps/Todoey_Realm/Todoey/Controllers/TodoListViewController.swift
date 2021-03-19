@@ -7,8 +7,11 @@
 
 import UIKit
 import RealmSwift
+import ChameleonFramework
 
 class TodoListViewController: SwipeTableViewController {
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var todoItems: Results<Item>?
     let realm = try! Realm()
@@ -26,7 +29,32 @@ class TodoListViewController: SwipeTableViewController {
         
         loadItems()
         
+        tableView.separatorStyle = .none
         tableView.rowHeight = 80.0
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        // Make navigation bar mutch to other colors in the view
+        if let colorHex = selectedCategory?.colorHex, let navBar = navigationController?.navigationBar, let mainColor = UIColor(hexString: colorHex) {
+            
+            title = selectedCategory!.name
+            
+            // Configuring appearance
+            let coloredAppearance = UINavigationBarAppearance()
+            coloredAppearance.configureWithOpaqueBackground()
+            coloredAppearance.backgroundColor = mainColor
+            coloredAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: ContrastColorOf(mainColor, returnFlat: true)]
+            coloredAppearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ContrastColorOf(mainColor, returnFlat: true)]
+            
+            // Set appearance
+            navBar.standardAppearance = coloredAppearance
+            navBar.scrollEdgeAppearance = coloredAppearance
+            
+            searchBar.barTintColor = mainColor
+            
+            navBar.tintColor = ContrastColorOf(mainColor, returnFlat: true)
+        }
     }
     
     // MARK: IBActions
@@ -75,6 +103,11 @@ class TodoListViewController: SwipeTableViewController {
         
         if let item = todoItems?[indexPath.row]{
             cell.textLabel?.text = item.title
+            
+            if let color = UIColor(hexString: selectedCategory!.colorHex)?.darken(byPercentage: CGFloat(indexPath.row) / CGFloat(todoItems!.count)) {
+                cell.backgroundColor = color
+                cell.textLabel?.textColor = ContrastColorOf(color, returnFlat: true) // makes text color black or white depending on background color
+            }
             
             // Tick/Untick logic
             cell.accessoryType = item.isDone ? .checkmark : .none

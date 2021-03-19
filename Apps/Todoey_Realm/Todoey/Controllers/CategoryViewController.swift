@@ -12,17 +12,30 @@ import ChameleonFramework
 class CategoryViewController: SwipeTableViewController {
     
     let realm = try! Realm() // It is Ok because it can throw only once when first executed due memory constraint
-    
     var categories: Results<Category>? // Autoupdating data container
 
+    // Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loadCategories()
         
         tableView.rowHeight = 80.0
-        
         tableView.separatorStyle = .none
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        // Set navigation bar appearance
+        let mainColor = UIColor(hexString: "1D9BF6")
+        
+        let appAppearance = UINavigationBarAppearance()
+        appAppearance.backgroundColor = mainColor
+        appAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: ContrastColorOf(mainColor!, returnFlat: true)]
+        appAppearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ContrastColorOf(mainColor!, returnFlat: true)]
+        
+        navigationController?.navigationBar.scrollEdgeAppearance = appAppearance
+        navigationController?.navigationBar.standardAppearance = appAppearance
     }
     
     // MARK: - TableView DataSource Methods
@@ -37,7 +50,12 @@ class CategoryViewController: SwipeTableViewController {
         
         if let category = categories?[indexPath.row] {
             cell.textLabel?.text = category.name
-            cell.backgroundColor = UIColor.init(hexString: category.colorHex)
+            
+            // Changing color
+            if let categoryColor = UIColor(hexString: category.colorHex) {
+                cell.backgroundColor = categoryColor
+                cell.textLabel?.textColor = ContrastColorOf(categoryColor, returnFlat: true)
+            }
         }
         
         return cell
