@@ -14,6 +14,28 @@ Here are small practice progects made in terms of learning Computer Science
 
 ## [iOS app development bootcamp](https://www.udemy.com/course/ios-13-app-development-bootcamp/?utm_source=adwords&utm_medium=udemyads&utm_campaign=iOSDevelopment_v.PROF_la.EN_cc.ROW_ti.6292&utm_content=deal4584&utm_term=_._ag_85479008314_._ad_437497336317_._kw__._de_c_._dm__._pl__._ti_dsa-774930045049_._li_9047027_._pd__._&matchtype=b&gclid=Cj0KCQiApsiBBhCKARIsAN8o_4gEPNNOg-_E9Tg0_tILyIOzcmQW0d26UKOQsdht9iqjSPDf1yCzVkkaAoLhEALw_wcB) 
 
+### Todoey (CoreData / Realm)
+![Image](https://github.com/Lemonbrush/Practice-Apps/blob/main/Resources/Images/My_projects/Todoey_Realm.png)
+
+A To-do app with gradient tableview feature based on different data persistance methods.
+
+`Practiced:`  
+- Local data persistance  
+- App sandboxing concept  
+- UserDefaults  
+- Encoding / Decoding data with NSCoder  
+- CoreData (CRUD)  
+- Realm (CRUD)  
+- Predicates  
+- UINavigation bar customization 
+- Work with the [Chameleon framework](https://github.com/wowansm/Chameleon/tree/swift5)  
+- Work with [SwipeCellKit](https://github.com/SwipeCellKit/SwipeCellKit)  
+
+[`Source files (Coredata)`](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/Todoey)  
+[`Source files finished app (Realm)`](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/Todoey_Realm)
+
+---
+
 ### HackerNews SwiftUI
 ![Image](https://github.com/Lemonbrush/Practice-Apps/blob/main/Resources/Images/My_projects/HackerNews.png)
 
