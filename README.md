@@ -131,6 +131,21 @@ Weather app. As They say, every iOS developer shoild make the weather app at lea
 
 ---
 
+### Calculator
+![Image](https://github.com/Lemonbrush/Practice-Apps/blob/main/Resources/Images/My_projects/Calculator.png)  
+
+Basic calculator made for Swift and UI layout practice  
+
+`Practiced:`  
+- MVC design pattern  
+- Autolayout  
+- Structs and Classes  
+- Tuples  
+
+[`Source files`](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/Calculator) 
+
+---
+
 ### Tipsy
 ![Image](https://github.com/Lemonbrush/Practice-Apps/blob/main/Resources/Images/My_projects/Tipsy.png) 
 

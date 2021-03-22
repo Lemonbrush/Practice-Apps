@@ -11,7 +11,20 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var displayLabel: UILabel!
     
+    private var calculator = CalculatorLogic()
+    
     private var isFinishedTypingNumber: Bool = true
+    
+    private var displayValue: Double {
+        
+        get {
+            return Double(displayLabel.text!)!
+        }
+        
+        set {
+            displayLabel.text = String(newValue)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +35,16 @@ class ViewController: UIViewController {
 
         isFinishedTypingNumber = true
         
-        guard let number = Double(displayLabel.text!) else {
-            fatalError("Cannot convert display label text to a Doable.")
+        calculator.setNumber(displayValue)
+        
+        if let calcMethod = sender.currentTitle {
+            
+            guard let result = calculator.calculate(with: calcMethod) else {
+                //fatalError("The result of the calculation is nil.")
+                return
+            }
+            
+            displayValue = result
         }
     }
     
@@ -36,6 +57,16 @@ class ViewController: UIViewController {
                 displayLabel.text = numValue
                 isFinishedTypingNumber = false
             } else {
+                
+                if numValue == "." {
+                    
+                    let isInt = floor(displayValue) == displayValue
+                    
+                    if !isInt {
+                        return
+                    }
+                }
+                
                 displayLabel.text = displayLabel.text! + numValue
             }
         }
