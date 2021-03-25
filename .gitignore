@@ -1,4 +1,7 @@
 .DS_Store
+*.mlmodel
 
 # Realm is a heavy thing so it is avoided to be pushed
 /Apps/Todoey_Realm/Pods
+
+/Apps/WhatFlower/Pods
