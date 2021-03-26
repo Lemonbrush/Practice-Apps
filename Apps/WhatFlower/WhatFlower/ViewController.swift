@@ -8,10 +8,17 @@
 import UIKit
 import CoreML
 import Vision
+import Alamofire
+import SwiftyJSON
+import SDWebImage
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var chosenImageView: UIImageView!
+    @IBOutlet weak var descriptionView: UIView!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    let wikipediaURl = "https://en.wikipedia.org/w/api.php"
     
     let imagePicker = UIImagePickerController()
     
@@ -19,9 +26,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        descriptionView.isHidden = true
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = true
+        
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     // Image picker methods
@@ -66,7 +76,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }
             
             if let firstResult = results.first {
-                self.navigationItem.title = firstResult.identifier.capitalized
+                
+                let flowerName = firstResult.identifier.capitalized
+                
+                self.navigationItem.title = flowerName
+                self.requestInfo(with: flowerName)
             }
         }
         
@@ -78,6 +92,41 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             print(error)
         }
         
+    }
+    
+    // REST Methods
+    func requestInfo(with flowerName: String) {
+        
+        let parameters : [String:String] = [
+            
+            "format" : "json",
+            "action" : "query",
+            "prop" : "extracts|pageimages",
+            "exintro" : "",
+            "explaintext" : "",
+            "titles" : flowerName,
+            "indexpageids" : "",
+            "redirects" : "1",
+            "pithumbsize": "500"
+          ]
+        
+        AF.request(wikipediaURl, method: .get, parameters: parameters).responseJSON { response in
+            
+            print("Wiki says - ",response, " \n\n\n")
+            
+            let json = JSON(response.value!)
+            
+            if let pageids = json["query"]["pageids"][0].string {
+                
+                let flowerDescription = json["query"]["pages"][pageids]["extract"].string
+                self.descriptionLabel.text = flowerDescription
+                
+                let flowerWikiImage = json["query"]["pages"][pageids]["thumbnail"]["source"].string!
+                //self.chosenImageView.sd_setImage(with: URL(string: flowerWikiImage))
+                
+                self.descriptionView.isHidden = false
+            }
+        }
     }
     
 }
