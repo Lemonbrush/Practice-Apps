@@ -13,7 +13,62 @@
 		70579BC2260F1DBD00BE381C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70579BC0260F1DBD00BE381C /* Main.storyboard */; };
 		70579BC4260F1DC000BE381C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70579BC3260F1DC000BE381C /* Assets.xcassets */; };
 		70579BC7260F1DC000BE381C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70579BC5260F1DC000BE381C /* LaunchScreen.storyboard */; };
+		70579BD026109D7E00BE381C /* TwitterSentimenter.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 70579BCF26109D7E00BE381C /* TwitterSentimenter.mlmodel */; };
+		70579BE92610A6DE00BE381C /* SwifteriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70579BDB2610A6A500BE381C /* SwifteriOS.framework */; };
+		70579BEA2610A6DE00BE381C /* SwifteriOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 70579BDB2610A6A500BE381C /* SwifteriOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		70579BDA2610A6A500BE381C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 70579BD22610A6A400BE381C /* Swifter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B9F50EE1944A5AB00894629;
+			remoteInfo = SwifteriOS;
+		};
+		70579BDC2610A6A500BE381C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 70579BD22610A6A400BE381C /* Swifter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B9F51131944A61D00894629;
+			remoteInfo = SwifterMac;
+		};
+		70579BDE2610A6A500BE381C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 70579BD22610A6A400BE381C /* Swifter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B300C1F1944AA1A00993175;
+			remoteInfo = SwifterDemoiOS;
+		};
+		70579BE02610A6A500BE381C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 70579BD22610A6A400BE381C /* Swifter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B300C471944AECB00993175;
+			remoteInfo = SwifterDemoMac;
+		};
+		70579BE22610A6A500BE381C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 70579BD22610A6A400BE381C /* Swifter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F6B4D5751C7BAC4500E06514;
+			remoteInfo = SwifterTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		70579BEB2610A6DE00BE381C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				70579BEA2610A6DE00BE381C /* SwifteriOS.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		70579BB7260F1DBD00BE381C /* TwitterMenti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterMenti.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +79,8 @@
 		70579BC3260F1DC000BE381C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70579BC6260F1DC000BE381C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		70579BC8260F1DC000BE381C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70579BCF26109D7E00BE381C /* TwitterSentimenter.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = TwitterSentimenter.mlmodel; sourceTree = "<group>"; };
+		70579BD22610A6A400BE381C /* Swifter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Swifter.xcodeproj; path = ../../../../../Desktop/Swifter/Swifter.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70579BE92610A6DE00BE381C /* SwifteriOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +98,10 @@
 		70579BAE260F1DBD00BE381C = {
 			isa = PBXGroup;
 			children = (
+				70579BD22610A6A400BE381C /* Swifter.xcodeproj */,
 				70579BB9260F1DBD00BE381C /* TwitterMenti */,
 				70579BB8260F1DBD00BE381C /* Products */,
+				70579BE82610A6DE00BE381C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,8 +123,28 @@
 				70579BC3260F1DC000BE381C /* Assets.xcassets */,
 				70579BC5260F1DC000BE381C /* LaunchScreen.storyboard */,
 				70579BC8260F1DC000BE381C /* Info.plist */,
+				70579BCF26109D7E00BE381C /* TwitterSentimenter.mlmodel */,
 			);
 			path = TwitterMenti;
+			sourceTree = "<group>";
+		};
+		70579BD32610A6A400BE381C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				70579BDB2610A6A500BE381C /* SwifteriOS.framework */,
+				70579BDD2610A6A500BE381C /* SwifterMac.framework */,
+				70579BDF2610A6A500BE381C /* SwifterDemoiOS.app */,
+				70579BE12610A6A500BE381C /* SwifterDemoMac.app */,
+				70579BE32610A6A500BE381C /* SwifterTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		70579BE82610A6DE00BE381C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,6 +157,7 @@
 				70579BB3260F1DBD00BE381C /* Sources */,
 				70579BB4260F1DBD00BE381C /* Frameworks */,
 				70579BB5260F1DBD00BE381C /* Resources */,
+				70579BEB2610A6DE00BE381C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -112,12 +193,56 @@
 			mainGroup = 70579BAE260F1DBD00BE381C;
 			productRefGroup = 70579BB8260F1DBD00BE381C /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 70579BD32610A6A400BE381C /* Products */;
+					ProjectRef = 70579BD22610A6A400BE381C /* Swifter.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				70579BB6260F1DBD00BE381C /* TwitterMenti */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		70579BDB2610A6A500BE381C /* SwifteriOS.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwifteriOS.framework;
+			remoteRef = 70579BDA2610A6A500BE381C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		70579BDD2610A6A500BE381C /* SwifterMac.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwifterMac.framework;
+			remoteRef = 70579BDC2610A6A500BE381C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		70579BDF2610A6A500BE381C /* SwifterDemoiOS.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = SwifterDemoiOS.app;
+			remoteRef = 70579BDE2610A6A500BE381C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		70579BE12610A6A500BE381C /* SwifterDemoMac.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = SwifterDemoMac.app;
+			remoteRef = 70579BE02610A6A500BE381C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		70579BE32610A6A500BE381C /* SwifterTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SwifterTests.xctest;
+			remoteRef = 70579BE22610A6A500BE381C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		70579BB5260F1DBD00BE381C /* Resources */ = {
@@ -140,6 +265,7 @@
 				70579BBF260F1DBD00BE381C /* ViewController.swift in Sources */,
 				70579BBB260F1DBD00BE381C /* AppDelegate.swift in Sources */,
 				70579BBD260F1DBD00BE381C /* SceneDelegate.swift in Sources */,
+				70579BD026109D7E00BE381C /* TwitterSentimenter.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
