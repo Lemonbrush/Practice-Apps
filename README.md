@@ -12,7 +12,17 @@ Here are small practice progects made in terms of learning Computer Science
 
 # Apps  
 
-## Other
+## Test apps
+
+### MKLocalSearch test app
+
+Test app with Area search and autocompliton implementation. SearchField and TableView that shows suggestions according to entered text  
+
+`Practiced:`  
+- MKLocal search and autocompletion
+- MapKit
+
+[`Source files`](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/MKLocalSearchCompleter)   
 
 ### PureLayout test app
 
