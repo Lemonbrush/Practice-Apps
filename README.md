@@ -14,6 +14,17 @@ Here are small practice progects made in terms of learning Computer Science
 
 ## Test apps
 
+Apps below are tiny projects made for wrapping head around some particular topics
+
+### MVP design pattern example
+
+A simple app based on MVP design pattern that fetches some user' data and shows in a tableView
+
+`Practiced:`  
+- MVP design pattern
+
+[`Source files`](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/MVPExample)   
+
 ### MKLocalSearch test app
 
 Test app with Area search and autocompliton implementation. SearchField and TableView that shows suggestions according to entered text  
