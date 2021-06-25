@@ -5,7 +5,8 @@ Here I store my iOS projects I made in terms of practice that are too small to b
 
 Here are small practice progects made in terms of learning Computer Science
 
-[**Swift**](https://github.com/Lemonbrush/Practice-Apps/blob/main/Swift)    
+[**Swift**](https://github.com/Lemonbrush/Practice-Apps/blob/main/Swift)   
+[**Objective-C**](https://github.com/Lemonbrush/Practice-Apps/blob/main/Objective-C)   
 [**HackerRank_Solutions**](Resources/Notes/HackerRank_solutions.md)  
 [**Data structures**](https://github.com/Lemonbrush/Practice-Apps/blob/main/Data_structures)  
 [**Algorithms**](https://github.com/Lemonbrush/Practice-Apps/blob/main/Algorithms)  
