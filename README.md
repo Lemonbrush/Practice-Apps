@@ -17,34 +17,45 @@ Here are small practice progects made in terms of learning Computer Science
 
 Apps below are tiny projects made for wrapping head around some particular topics
 
-### MVP design pattern example
+### [MVP design pattern example](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/MVPExample)   
 
 A simple app based on MVP design pattern that fetches some user' data and shows in a tableView
 
 `Practiced:`  
 - MVP design pattern
 
-[`Source files`](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/MVPExample)   
-
-### MKLocalSearch test app
+### [MKLocalSearch test app](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/MKLocalSearchCompleter)   
 
 Test app with Area search and autocompliton implementation. SearchField and TableView that shows suggestions according to entered text  
 
 `Practiced:`  
 - MKLocal search and autocompletion
-- MapKit
+- MapKit 
 
-[`Source files`](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/MKLocalSearchCompleter)   
-
-### PureLayout test app
+### [PureLayout test app](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/PureLayoutTestApp)  
 
 Test app with simple animation with PureLayout API   
 
 `Practiced:`  
 - [PureLayout](https://github.com/PureLayout/PureLayout)  
-- Animation  
-  
-[`Source files`](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/PureLayoutTestApp)   
+- Animation   
+
+### [Photo loader](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/NSOperationPractice) 
+
+NSOperation logic learning
+
+`Practiced:`  
+- NSOperation 
+
+### [KVOTest](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/KVOTest)  
+
+`Practiced:`  
+- KVO
+
+### [SpotifyCollectionView]](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/SpotifyCollectionView)  
+
+`Practiced:`  
+- CollectionView with custome cards view    
 
 ---
 
