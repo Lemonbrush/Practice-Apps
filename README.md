@@ -11,6 +11,8 @@ Here are small practice progects made in terms of learning Computer Science
 [**Data structures**](https://github.com/Lemonbrush/Practice-Apps/blob/main/Data_structures)  
 [**Algorithms**](https://github.com/Lemonbrush/Practice-Apps/blob/main/Algorithms)  
 
+[**`Other playground projects`**](https://github.com/Lemonbrush/Practice-Apps/blob/main/Playground)  
+
 # Apps  
 
 ## Test apps
