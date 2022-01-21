@@ -26,6 +26,11 @@ A simple app based on MVP design pattern that fetches some user' data and shows 
 `Practiced:`  
 - MVP design pattern
 
+### [MVVM](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/MVVM)   
+
+`Practiced:`  
+- MVVM design pattern
+
 ### [MKLocalSearch test app](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/MKLocalSearchCompleter)   
 
 Test app with Area search and autocompliton implementation. SearchField and TableView that shows suggestions according to entered text  
