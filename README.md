@@ -59,12 +59,12 @@ NSOperation logic learning
 `Practiced:`  
 - KVO
 
-### [SpotifyCollectionView]](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/SpotifyCollectionView)  
+### [SpotifyCollectionView](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/SpotifyCollectionView)  
 
 `Practiced:`  
 - CollectionView with custome cards view    
 
-### [GooglyPuff]](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/GooglyPuff_Part_1)  
+### [GooglyPuff Part 1](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/GooglyPuff_Part_1) and [Part 2](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/GooglyPuff_Part_2)
 
 `Practiced:`  
 - GCD 
