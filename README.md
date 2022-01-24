@@ -64,6 +64,11 @@ NSOperation logic learning
 `Practiced:`  
 - CollectionView with custome cards view    
 
+### [GooglyPuff]](https://github.com/Lemonbrush/Practice-Apps/blob/main/Apps/GooglyPuff_Part_1)  
+
+`Practiced:`  
+- GCD 
+
 ---
 
 ## [iOS app development bootcamp](https://www.udemy.com/course/ios-13-app-development-bootcamp/?utm_source=adwords&utm_medium=udemyads&utm_campaign=iOSDevelopment_v.PROF_la.EN_cc.ROW_ti.6292&utm_content=deal4584&utm_term=_._ag_85479008314_._ad_437497336317_._kw__._de_c_._dm__._pl__._ti_dsa-774930045049_._li_9047027_._pd__._&matchtype=b&gclid=Cj0KCQiApsiBBhCKARIsAN8o_4gEPNNOg-_E9Tg0_tILyIOzcmQW0d26UKOQsdht9iqjSPDf1yCzVkkaAoLhEALw_wcB) 
