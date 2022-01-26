@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FatImagesGCD" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aje-eR-K9q">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <items>
+                                    <barButtonItem title="Sync" id="lp5-vf-fkp">
+                                        <connections>
+                                            <action selector="synchronousDownload:" destination="BYZ-38-t0r" id="6T3-mn-RME"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Async" id="X6g-J5-9l9">
+                                        <connections>
+                                            <action selector="simpleAsynchronousDownload:" destination="BYZ-38-t0r" id="xkm-qL-fRa"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Async + completion closure" id="ozS-cR-tcl">
+                                        <connections>
+                                            <action selector="asynchronousDownload:" destination="BYZ-38-t0r" id="EJl-Cq-X1E"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="DHw-Oj-bsw">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            </activityIndicatorView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="wYJ-mx-Mu8">
+                                <rect key="frame" x="23" y="433" width="368" height="31"/>
+                                <connections>
+                                    <action selector="setTransparencyOfImage:" destination="BYZ-38-t0r" eventType="valueChanged" id="6CR-Yc-xsF"/>
+                                </connections>
+                            </slider>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E8d-c0-i17">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Aje-eR-K9q" firstAttribute="top" secondItem="E8d-c0-i17" secondAttribute="bottom" id="7A0-rO-X2D"/>
+                            <constraint firstItem="wYJ-mx-Mu8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="9g8-s4-6WB"/>
+                            <constraint firstItem="Aje-eR-K9q" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="AMh-Jj-ry9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Aje-eR-K9q" secondAttribute="bottom" id="FNJ-VS-Cle"/>
+                            <constraint firstItem="wYJ-mx-Mu8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="OAk-Lw-mYz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="E8d-c0-i17" secondAttribute="trailing" id="RHi-rz-F73"/>
+                            <constraint firstItem="DHw-Oj-bsw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VIp-WR-MeQ"/>
+                            <constraint firstItem="E8d-c0-i17" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Yk1-Jn-Q6W"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wYJ-mx-Mu8" secondAttribute="trailing" constant="25" id="eCP-TX-SAH"/>
+                            <constraint firstItem="E8d-c0-i17" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="iNW-3K-FQJ"/>
+                            <constraint firstItem="Aje-eR-K9q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rnW-9s-suG"/>
+                            <constraint firstItem="DHw-Oj-bsw" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="t1Z-a6-b0o"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="photoView" destination="E8d-c0-i17" id="vJG-2d-ubY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="97.767857142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
